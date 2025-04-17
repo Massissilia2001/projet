@@ -1,0 +1,39 @@
+<div class="note-container">
+  <h2>Gestion des Notes</h2>
+  
+ 
+  <input type="text" placeholder="Rechercher des notes..." [(ngModel)]="searchTerm" (input)="filterNotes()" />
+  
+ 
+  <button class="add" (click)="openAddModal()">Ajouter une Note</button>
+  
+  <!-- Liste des notes filtrées -->
+  <div *ngFor="let note of filteredNotes">
+    <div class="note" [style.background-color]="note.color">
+      <h3>{{ note.title }}</h3>
+      <p>Date: {{ note.date | date:'shortDate' }}</p>
+      <p>{{ note.content }}</p>
+      <p>Tags: {{ note.tags.join(', ') }}</p>
+      <button class="delete" (click)="deleteNote(note.id)">Supprimer</button>
+      <button class="edit" (click)="openEditModal(note)">Modifier</button>
+    </div>
+  </div>
+  
+  
+  <div *ngIf="isModalOpen" class="modal">
+    <div class="modal-content">
+      <span (click)="closeModal()" class="close">&times;</span>
+      <h3>{{ editing.id === '0' ? 'Ajouter' : 'Modifier' }} une Note</h3>
+      <input [(ngModel)]="editing.title" placeholder="Titre" required />
+      <textarea [(ngModel)]="editing.content" placeholder="Contenu" required></textarea>
+      <input type="color" [(ngModel)]="editing.color" />
+      
+      <input [(ngModel)]="editing.tags" placeholder="Tags (séparés par des virgules)" 
+             (change)="updateTags($event)" />
+      <button (click)="submitNote()">
+        {{ editing.id === '0' ? 'Ajouter' : 'Modifier' }}
+      </button>
+      <button (click)="closeModal()">Annuler</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<h2>Liste des Tags</h2>
+<form (ngSubmit)="submitTag()">
+  <input [(ngModel)]="editing.name" name="name" placeholder="Nom de l'étiquette" required />
+  <input [(ngModel)]="editing.color" name="color" type="color" required />
+  <button type="submit">Ajouter une étiquette</button>
+</form>
+
+<div *ngFor="let tag of tags">
+  <app-tag 
+    [id]="tag.id" 
+    [name]="tag.name" 
+    [color]="tag.color" 
+    (delete)="deleteTag(tag)">
+  </app-tag>
+  <button (click)="startEditingTag(tag)">Modifier</button>
+</div>
+
+<p *ngIf="tags.length === 0">Aucun tag !</p>

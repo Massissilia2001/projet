@@ -1,0 +1,39 @@
+.tag {
+    padding: 10px;
+    margin: 5px 0; 
+    border-radius: 4px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: white; 
+    font-weight: bold;
+    transition: background-color 0.3s; 
+    width: auto; 
+    max-width: 1000px; 
+    margin-left: auto; 
+    margin-right: auto; 
+  }
+  
+  button {
+    border: none; 
+    color: white; 
+    cursor: pointer;
+    padding: 5px 10px; 
+    border-radius: 4px; 
+  
+    &.delete {
+      background-color: #dc3545; 
+      
+      &:hover {
+        background-color: #c82333; 
+      }
+    }
+  
+    &.edit {
+      background-color: #28a745; 
+      
+      &:hover {
+        background-color: #218838; 
+      }
+    }
+  }

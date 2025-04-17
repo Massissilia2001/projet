@@ -1,0 +1,106 @@
+.note-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.note {
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
+  .tags {
+    margin: 10px 0;
+    
+    .tag {
+      display: inline-block;
+      background: #e0e0e0;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-right: 5px;
+      font-size: 0.8em;
+    }
+  }
+}
+
+button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-right: 5px;
+  font-size: 14px;
+  
+  &.delete {
+    background-color: #dc3545;
+  }
+
+  &.edit {
+    background-color: #28a745;
+  }
+
+  &.add {
+    background-color: #007bff;
+    margin-bottom: 15px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  
+  input, textarea {
+    margin-bottom: 15px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #aaa;
+  cursor: pointer;
+  
+  &:hover {
+    color: #333;
+  }
+}
